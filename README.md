@@ -257,7 +257,3 @@ This repository currently runs as a local development implementation. Before dep
 - The frontend currently targets `http://localhost:8001` for API requests.
 - `infra/livekit.yaml`, `infra/nginx.conf`, and the service Dockerfiles are placeholders for the deployment layer.
 - Empty Python modules under `api/` and `bot/` are reserved for future separation of concerns.
-
-## License
-
-No license has been added yet. Add a license before publishing the repository for reuse.
