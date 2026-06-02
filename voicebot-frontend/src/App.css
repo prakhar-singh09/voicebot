@@ -1,0 +1,164 @@
+.app-shell {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  box-sizing: border-box;
+}
+
+.voice-panel {
+  width: min(760px, 100%);
+  display: grid;
+  gap: 28px;
+}
+
+.orb {
+  width: 176px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 35% 30%, #ffffff 0 10%, transparent 11%),
+    linear-gradient(145deg, #1c776f, #161a26 62%, #db5c35);
+  box-shadow: 0 24px 70px rgba(16, 24, 40, 0.22);
+}
+
+.pulse {
+  width: 62%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.pulse.active {
+  animation: breathe 1.2s ease-in-out infinite;
+}
+
+.copy {
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.copy p:last-child {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.controls {
+  display: grid;
+  gap: 16px;
+}
+
+label {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+  color: var(--text-h);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input {
+  min-height: 46px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 14px;
+  color: var(--text-h);
+  background: var(--surface);
+  font: inherit;
+}
+
+button {
+  min-height: 48px;
+  border: 0;
+  border-radius: 6px;
+  padding: 0 18px;
+  background: var(--accent);
+  color: white;
+  font: 700 16px/1 var(--sans);
+  cursor: pointer;
+}
+
+button.secondary {
+  color: var(--text-h);
+  background: var(--surface-strong);
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.status-line {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0 14px;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.status-line span {
+  text-transform: capitalize;
+}
+
+.status-line[data-state='connected'] span {
+  color: #12805c;
+}
+
+.error {
+  color: #c6362e;
+  text-align: center;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 20px;
+  }
+
+  .orb {
+    width: 132px;
+  }
+
+  .button-row {
+    grid-template-columns: 1fr;
+  }
+
+  .status-line {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px 14px;
+  }
+}
